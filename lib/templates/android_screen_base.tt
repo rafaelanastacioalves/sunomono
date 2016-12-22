@@ -197,7 +197,6 @@ class AndroidScreenBase < Calabash::ABase
 
   def scroll_looking_for_query query, scroll_location_id, scroll_location_query = nil , direction= :down, options = {}
 
-    #depois ele permanece
     if scroll_location_query.nil?
       scroll_location_query="* id:'#{scroll_location_id}'"
     end
