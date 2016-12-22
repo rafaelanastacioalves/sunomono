@@ -219,4 +219,21 @@ class AndroidScreenBase < Calabash::ABase
     end
   end
   
+  # @param [Hash] options it is possible to pass the view id or the query
+  # @option options [String] :id The view's id
+  # @option options [String] :query The complete view query
+  # @return [String] returns a string associated with a single view, if the case
+  # @return [Array] return an array[String] associated with the views, if the case
+  # Example ->     get_text_from(query: query_text_variable)
+  def get_text_from(options = {})
+    query_text = "* id:'#{options[:id]}'" unless options[:id].nil?
+    query_text = options[:query] unless options[:query].nil?
+    array_textos = query(query_text, :text)
+
+    # returns an array[String] or text dependending of the quantity of views found 
+    return array_textos.first unless array_textos.size > 1
+    array_textos
+  end
+
+  
 end
