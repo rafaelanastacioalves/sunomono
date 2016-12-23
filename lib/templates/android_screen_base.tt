@@ -209,8 +209,6 @@ class AndroidScreenBase < Calabash::ABase
       options[:flick]=false
     end
     wait_poll(:until_exists => query, :timeout => options[:timeout]) do
-      puts "Indo #{direction}"
-
       if options[:flick]
         flick(scroll_location_query, direction)
       else
@@ -228,11 +226,11 @@ class AndroidScreenBase < Calabash::ABase
   def get_text_from(options = {})
     query_text = "* id:'#{options[:id]}'" unless options[:id].nil?
     query_text = options[:query] unless options[:query].nil?
-    array_textos = query(query_text, :text)
+    array_text = query(query_text, :text)
 
     # returns an array[String] or text dependending of the quantity of views found 
-    return array_textos.first unless array_textos.size > 1
-    array_textos
+    return array_text.first unless array_text.size > 1
+    array_text
   end
 
   
