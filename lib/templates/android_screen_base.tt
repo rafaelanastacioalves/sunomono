@@ -205,9 +205,6 @@ class AndroidScreenBase < Calabash::ABase
       options[:timeout]=15
     end
 
-    if options[:flick].nil?
-      options[:flick]=false
-    end
     wait_poll(:until_exists => query, :timeout => options[:timeout]) do
       if options[:flick]
         flick(scroll_location_query, direction)
