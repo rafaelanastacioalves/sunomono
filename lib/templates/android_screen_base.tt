@@ -184,35 +184,7 @@ class AndroidScreenBase < Calabash::ABase
     touch "* id:'button1'"
   end
   
-  # @param query [String] query that will be searched
-  # @param scroll_location_id [String]
-  # @param scroll_location_query [String, nil]
-  # @param direction [Symbol]
-  # @param options [Hash]
-  # @option options [String] :timeout
-  # @option options [String] :flick in case we need flick
-  # @todo #TODO Add reset option to allow going to top position
-  # before start search
-  # Exemple -> scroll_looking_for_query(query_text_variable, nil, scroll_location_query_variable, :down, :timeout=>7)
-
-  def scroll_looking_for_query query, scroll_location_id, scroll_location_query = nil , direction= :down, options = {}
-
-    if scroll_location_query.nil?
-      scroll_location_query="* id:'#{scroll_location_id}'"
-    end
-
-    if options[:timeout].nil?
-      options[:timeout]=15
-    end
-
-    wait_poll(:until_exists => query, :timeout => options[:timeout]) do
-      if options[:flick]
-        flick(scroll_location_query, direction)
-      else
-        scroll(scroll_location_query, direction)
-      end
-    end
-  end
+ 
   
   # @option [String] id The view's id (optional)
   # @option [String] The complete view query
