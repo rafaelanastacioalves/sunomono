@@ -188,19 +188,19 @@ class AndroidScreenBase < Calabash::ABase
   
   # @option [String] id The view's id (optional)
   # @option [String] The complete view query
-  # @return [Array] return an array[String] associated with the views, if the case
-  def text_array_from(id = nil, query)
+  # @return [Array] return an array[String] associated with the views
+  def text_array_from(query, id = nil)
     query_text = "* id:'#{id}'" unless id.nil?
     query_text = query unless query.nil?
     array_text = query(query_text, :text)
     array_text
   end
-  
+
   # @option [String] id The view's id (optional)
   # @option [String] The complete view query
-  # @return [String] returns a string associated with a single view, if the case
-  def text_from(id = nil, query)
-    text_array_from(id, query).first
+  # @return [String] returns a string associated with a single view
+  def text_from(query, id = nil)
+    text_array_from(query, id).first
   end
 
   
