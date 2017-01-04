@@ -250,8 +250,8 @@ class IOSScreenBase < Calabash::IBase
   # @option [String] id The view's id (optional)
   # @option [String] The complete view query
   # @return [Array] return an array[String] associated with the views
-  def text_array_from(query, id = nil)
-    query_text = "* id:'#{id}'" unless id.nil?
+  def text_array_from(query, marked = nil)
+    query_text = "* marked:'#{marked}'" unless marked.nil?
     query_text = query unless query.nil?
     array_text = query(query_text, :text)
     array_text
@@ -260,8 +260,8 @@ class IOSScreenBase < Calabash::IBase
   # @option [String] id The view's id (optional)
   # @option [String] The complete view query
   # @return [String] returns a string associated with a single view
-  def text_from(query, id = nil)
-    text_array_from(query, id).first
+  def text_from(query, marked = nil)
+    text_array_from(query, marked).first
   end
   
 end
